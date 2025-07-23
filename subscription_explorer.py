@@ -9,7 +9,8 @@ def load_data():
     return pd.read_csv("newboshhhsubscriptioncategory.csv")
 
 df = load_data()
-
+# Clean category names for display
+df['boshh_subscription_category'] = df['boshh_subscription_category'].str.replace(r'^Subscription\s*[-–]\s*', '', regex=True)
 st.title("📦 Subscription Explorer – Boshhh")
 st.markdown("""
 Explore subscription transactions detected in open banking data. Filter by category or merchant to analyse volume, spending patterns, and descriptions.
